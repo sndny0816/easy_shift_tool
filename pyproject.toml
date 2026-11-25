@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sinta-shift"
+version = "0.6.1"
+description = "ローカルで動く担当者確認用の勤務表作成アプリ"
+requires-python = ">=3.12,<3.14"
+dependencies = ["pandas>=2.2,<3", "openpyxl>=3.1.5,<4", "ortools>=9.11,<10"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "pyinstaller>=6.10,<7"]
+
+[project.gui-scripts]
+sinta-shift = "sinta_shift.gui:main"
+
+[tool.setuptools.packages.find]
+include = ["sinta_shift*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
